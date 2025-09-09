@@ -5,6 +5,8 @@ const BudgetContext = createContext();
 
 const BudgetProvider = ({ children }) => {
   const [budgetMode, setBudgetMode] = useState(false);
+  const [budgetLimit, setBudgetLimit] = useState(30);
+
 
   // funzione  per invertire lo stato
   const toggleBudgetMode = () => {
@@ -14,6 +16,8 @@ const BudgetProvider = ({ children }) => {
   const value = {
     budgetMode,
     toggleBudgetMode,
+    budgetLimit,
+    setBudgetLimit,
   };
 
   return (

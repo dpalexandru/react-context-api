@@ -6,23 +6,27 @@ import Prodotti from "./pages/Prodotti"
 import Layout from "./layouts/Layout"
 import ProductPage from "./pages/ProductPage"
 import { BudgetProvider } from "./context/BudgetContext"
-
+import { FavoritesProvider } from "./context/FavoritesContext"
 
 function App() {
 
   return (
     <BudgetProvider>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/chisiamo" element={<ChiSiamo />} />
-          {/* Raggruppo qui i prodotti */}
-          <Route path="/prodotti">
-            <Route index element={<Prodotti />} />
-            <Route path=":id" element={<ProductPage />} />
+      <FavoritesProvider>
+
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/chisiamo" element={<ChiSiamo />} />
+            {/* Raggruppo qui i prodotti */}
+            <Route path="/prodotti">
+              <Route index element={<Prodotti />} />
+              <Route path=":id" element={<ProductPage />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+
+      </FavoritesProvider>
     </BudgetProvider>
   )
 }

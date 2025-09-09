@@ -3,7 +3,9 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useContext } from 'react'
-import { BudgetContext } from '../context/BudgetContext'
+import { BudgetContext } from '../context/BudgetContext';
+import { FavoritesContext } from "../context/FavoritesContext";
+
 
 // link recupero dati
 const url = "https://fakestoreapi.com/products"
@@ -12,6 +14,7 @@ const Prodotti = () => {
 
   //destructoring BudgetContext
   const { budgetMode, toggleBudgetMode, budgetLimit, setBudgetLimit } = useContext(BudgetContext);
+  const { isFavorite, toggleFavorite } = useContext(FavoritesContext);
 
   // U S E S T A T E
   const [prodotti, setProdotti] = useState([])
@@ -44,7 +47,20 @@ const Prodotti = () => {
                 state={prodotto}
                 className="text-decoration-none text-dark"
               >
-                <div className="card h-100 shadow-sm">
+                <div className="card h-100 shadow-sm position-relative">
+                  <button
+                    className={`btn btn-sm rounded-circle shadow position-absolute top-0 end-0 m-2 ${isFavorite(prodotto.id) ? "btn-danger" : "btn-light"}`}
+                    aria-pressed={isFavorite(prodotto.id)}
+                    aria-label={isFavorite(prodotto.id) ? "Rimuovi dai preferiti" : "Aggiungi ai preferiti"}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      toggleFavorite(prodotto.id);
+                    }}
+                  >
+                    <i className={`bi ${isFavorite(prodotto.id) ? "bi-heart-fill" : "bi-heart"}`} />
+                  </button>
+
                   <img
                     src={prodotto.image}
                     className="card-img-top p-3"

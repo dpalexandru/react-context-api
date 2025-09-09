@@ -8,6 +8,15 @@ const Navbar = () => {
         <NavLink className="navbar-brand fw-bold" to="/">
           Fake Store
         </NavLink>
+
+        {/* Bottone modalità budget */}
+        <div className="mx-auto">
+          <button className="btn btn-outline-warning">
+            Imposta budget
+            <i className="bi bi-cash-stack m-2"></i>
+          </button>
+        </div>
+
         <ul className="navbar-nav ms-auto  ">
           <li className="nav-item ">
             <NavLink className="nav-link" to="/">

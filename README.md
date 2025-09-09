@@ -40,4 +40,4 @@ Nel componente navbar al posto del bottone inserite un campo input di tipo numbe
 Nella pagina prodotti, verranno mostrati soltanto i prodotti con price <= maxPrice
 ‼️Se max price è null o comunque non è settato, devono essere visualizzati tutti i prodotti
 
-## C O N S E G N A  
+## C O N S E G N A   09/09/2025

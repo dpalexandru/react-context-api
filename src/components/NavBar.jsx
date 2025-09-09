@@ -34,7 +34,7 @@ const Navbar = () => {
               <input
                 type="text"
                 min="0"
-                className='form-control form-control-sm'
+                className='form-control form-control-sm mt-2'
                 value={budgetLimit}
                 onChange={(e) => setBudgetLimit(Number(e.target.value))}
                 placeholder='Inserisci importo masssimo'
